@@ -19,6 +19,7 @@ io.on("connection", (socket) => {
 
   socket.on("chat message", (msg) => {
     io.emit("chat message", msg);
+    socket.broadcast.emit("notification", "New message received!"); // Emit a notification to all except the sender
   });
 });
 
